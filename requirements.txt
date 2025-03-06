@@ -11,3 +11,5 @@ vaderSentiment
 wordcloud
 newspaper3k
 GoogleNews
+lxml
+lxml_html_clean
