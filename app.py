@@ -3,13 +3,12 @@ import pymongo
 import re
 import nltk
 import spacy
-import os
+import spacy
 
 try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
-    raise RuntimeError("❌ SpaCy model 'en_core_web_sm' is missing. Ensure it is added in `requirements.txt`.")
-
+    raise RuntimeError("❌ SpaCy model 'en_core_web_sm' is missing. Ensure it is installed in `requirements.txt`.")
 import gensim
 import pandas as pd
 import matplotlib.pyplot as plt
