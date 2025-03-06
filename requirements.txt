@@ -1,0 +1,13 @@
+streamlit
+pymongo
+nltk
+spacy
+gensim
+pandas
+matplotlib
+seaborn
+textblob
+vaderSentiment
+wordcloud
+newspaper3k
+GoogleNews
