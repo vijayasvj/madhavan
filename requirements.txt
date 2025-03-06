@@ -1,6 +1,7 @@
 streamlit
 pymongo
 nltk
+spacy
 gensim
 pandas
 matplotlib
@@ -12,5 +13,4 @@ newspaper3k
 GoogleNews
 lxml
 lxml_html_clean
-spacy
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0.tar.gz
