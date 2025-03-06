@@ -19,18 +19,9 @@ from GoogleNews import GoogleNews
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
-import spacy
-import os
-
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    os.system("python -m spacy download en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
-
-
 # ------------------------------- STEP 1: CONNECT TO MONGODB ATLAS -------------------------------
-uri = "mongodb+srv://madstriker:Vijay1muru@cluster0.68cyr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# Securely load MongoDB URI from Streamlit secrets
+uri = st.secrets["mongodb"]["uri"]
 
 client = MongoClient(uri, server_api=ServerApi('1'))
 db = client["women_cricket_news"]
@@ -72,7 +63,13 @@ def store_in_mongo(data):
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
-spacy_model = spacy.load('en_core_web_sm')
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    import os
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 def clean_text(text):
     text = re.sub(r"http\S+|www\S+|https\S+", "", text, flags=re.MULTILINE)
@@ -178,7 +175,6 @@ st.write("""
 """)
 
 st.success("🎉 Report Completed! You can now analyze more data by scraping new articles.")
-
 
 st.subheader("Developed by")
 st.write("""
