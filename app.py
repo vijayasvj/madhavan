@@ -3,6 +3,13 @@ import pymongo
 import re
 import nltk
 import spacy
+import os
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 import gensim
 import pandas as pd
 import matplotlib.pyplot as plt
